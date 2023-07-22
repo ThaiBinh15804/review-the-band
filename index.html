@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>The Band</title>
         <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
         <link rel="stylesheet" href="./assets/font/fontawesome-free-6.4.0-web/css/all.css">
         <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
     </head>
@@ -13,7 +14,10 @@
         <!-- HEADER -->
         <div id="header" class="clear">
             <ul id="nav" >
-                <li><a href="#slider">Home</a></li>
+                <i class="fa-solid fa-bars " id="mobile-menu-btn"></i>
+                <li class="mobile-nav-home">
+                    <a href="#slider" class="mobile-nav-home">Home</a>
+                </li>
                 <li><a href="#about-section">Band</a></li>
                 <li><a href="#tour-container">Tour</a></li>
                 <li><a href="#contact-section">Contact</a></li>
@@ -48,15 +52,15 @@
                 <p class="about-content">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                 <div class="row member-container clear">
-                    <div class="member col-third">
+                    <div class="mobile-member member col-third">
                         <p class="member-name">Name</p>
                         <img class="member-img" src="./assets/img/Content/About-Section/bandmember.jpg" alt="anh">
                     </div>
-                    <div class="member col-third">
+                    <div class="mobile-member member col-third">
                         <p class="member-name">Name</p>
                         <img class="member-img" src="./assets/img/Content/About-Section/bandmember.jpg" alt="anh">
                     </div>
-                    <div class="member col-third">
+                    <div class="mobile-member member col-third">
                         <p class="member-name">Name</p>
                         <img class="member-img" src="./assets/img/Content/About-Section/bandmember.jpg" alt="anh">
                     </div>
@@ -74,8 +78,8 @@
                         <li>November <span class="remain-ticket">3</span></li>
                     </ul>
                     
-                    <div class="row place-container">
-                        <div class="col-third place">
+                    <div class="row place-container clear">
+                        <div class="mobile-place-container col-third place">
                             <img src="./assets/img/Content/Tour-Section/newyork.jpg" alt="" class="place-img">
                             <div class="place-content">
                                 <p class="address">New York</p>
@@ -86,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="col-third place">
+                        <div class="mobile-place-container col-third place">
                             <img src="./assets/img/Content/Tour-Section/paris.jpg" alt="" class="place-img">
                             <div class="place-content">
                                 <p class="address">Paris</p>
@@ -97,7 +101,7 @@
                             </div>
                         </div>
 
-                        <div class="col-third place">
+                        <div class="mobile-place-container col-third place">
                             <img src="./assets/img/Content/Tour-Section/sanfran.jpg" alt="" class="place-img">
                             <div class="place-content">
                                 <p class="address">San Francisco</p>
@@ -116,15 +120,15 @@
                 <h2 class="heading">CONTACT</h2>
                 <p class="sub-heading">Fan? Drop a note!</p>
                 <div class="row clear">
-                    <div class="contact-info col-second">
+                    <div class="mobile-contact-info contact-info col-second">
                         <p><i class="fa-solid fa-location-dot"></i> Chicago, US</p>
                         <p><i class="fa-solid fa-phone"></i> Phone: +00 151515</p>
                         <p><i class="fa-solid fa-envelope"></i> Email: mail@mail.com</p>
                     </div>
-                    <form class="contact-form col-second">
+                    <form class="mobile-contact-form contact-form col-second">
                         <div class="row clear">
-                            <div class="col-second name"><input class="name-input" required type="text" placeholder="Name"></div>
-                            <div class="col-second email"><input class="name-input" required type="email" placeholder="Email"></div>
+                            <div class="mobile-name col-second name"><input class="name-input" required type="text" placeholder="Name"></div>
+                            <div class="mobile-name col-second email"><input class="name-input" required type="email" placeholder="Email"></div>
                         </div>
                         <input class="massage-input" required type="text" placeholder="Message">
 
@@ -193,6 +197,40 @@
             }
 
             modalClose.addEventListener('click', hiddenTicketModal)
+        </script>
+
+        <script>
+            var header = document.getElementById('header');
+            var mobileMenu = document.getElementById('mobile-menu-btn');
+            var headerHeight =  header.clientHeight;
+
+            // Đóng mở mobile menu
+            mobileMenu.onclick = function() {
+                var isClosed = header.clientHeight === headerHeight;
+                if (isClosed) {
+                    header.style.height = 'auto';
+                }
+                else {
+                    header.style.height = null;
+                }
+            }
+
+            // Tự động đóng khi chọn menu 
+            var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+            for (var i = 0; i <menuItems.length; i ++)
+            {
+                var menuItem = menuItems[i];
+
+                menuItem.onclick = function(event) {
+                    var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                    if (isParentMenu) {
+                        event.preventDefault();
+                    }
+                    else {
+                        header.style.height = null;
+                    }
+                }
+            }
         </script>
     </body>
 </html>

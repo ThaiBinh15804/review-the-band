@@ -33,6 +33,7 @@ html {
 
 .content-section {
    width: 800px;
+   max-width: 100%;
    margin: 0 auto;
    padding: 64px 16px;
 }
@@ -75,7 +76,7 @@ html {
    top: 0;
    right: 0;
    left: 0;
-   line-height: 46.5px;
+   height: 46.5px;
    z-index: 3;
 }
 
@@ -96,7 +97,7 @@ html {
    text-transform: uppercase;
 }
 
-#nav>li:hover>a {
+#nav>li:hover>a{
    background-color: #ccc;
    color: #000;
 }
@@ -110,6 +111,10 @@ html {
    position: absolute;
    list-style: none;
    box-shadow: 0 0 10px #353535;
+}
+
+#nav .subnav li {
+   line-height: 46.5px;
 }
 
 #nav .subnav a {
@@ -126,11 +131,16 @@ html {
    background-color: #ccc;
 }
 
+#header #mobile-menu-btn,
 #header .search-btn {
    color: #fff;
    float: right;
    padding: 0px 24px;
    line-height: 46.5px;
+}
+
+#header #mobile-menu-btn {
+   display: none;
 }
 
 #header .search-btn:hover {
@@ -234,6 +244,7 @@ html {
 
 .place-container {
    padding: 32px 0;
+   width: auto;
    margin: 0 -8px;
 }
 
@@ -291,6 +302,13 @@ html {
 .ticket-modal {
    width: 900px;
    margin: 0 auto;
+}
+
+@media(max-width: 1023px) and (min-width: 740px) {
+   .ticket-modal {
+      width: 500px;
+      margin: 0 auto;
+   }
 }
 
 .ticket-modal header {
@@ -370,6 +388,9 @@ html {
 }
 
 /* CONTACT */
+#contact-section .contact-info {
+   margin-bottom: 8px;
+}
 #contact-section .contact-info p {
    line-height: 1.5;
    font-size: 18px;
@@ -386,22 +407,22 @@ html {
    border: 1px solid #ccc;
 }
 
-#contact-section .contact-form .row {
-   margin-bottom: 8px;
-}
-
 #contact-section .contact-form .name {
    padding-right: 8px;
+   margin-bottom: 8px;
+
 }
 
 #contact-section .contact-form .email {
    padding-left: 8px;
+   margin-bottom: 8px;
 }
 
 #contact-section .contact-form .send-btn {
    float: right;
    margin: 16px 0;
 }
+
 
 #contact-section>.row {
    padding: 32px 0;
