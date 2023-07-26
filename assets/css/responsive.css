@@ -3,10 +3,48 @@
 
 }
 
+/* Tablet & Mobile */
+@media(max-width: 1023px) {
+    .button-color {
+        padding: 15px 14px;
+    }
+
+    #contact-section .contact-form input  {
+        padding: 14px;
+    }
+
+    #contact-section .contact-info p { 
+        line-height: 1.7;
+        font-size: 20px;
+    }
+
+    #footer .linked a  {
+        margin: 0 8px;
+    }
+
+    #footer .make-by a {
+        margin: 12px 0;
+        display: inline-block;
+    }
+
+    .ticket-modal .ticket-content p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .ticket-modal .ticket-content input {
+        padding: 16px
+    }
+
+    .ticket-modal .ticket-content .help {
+        font-size: 20px;
+    }
+}
+
 
 /* Tablet */
 @media(min-width: 740px) and (max-width: 1023px) {
-
+    
 }
 
 
@@ -68,6 +106,9 @@
         width: auto;
     }
 
+    .place-content .buy-tiket-btn {
+        width: 100%;
+    }
     .ticket-modal {
         width: 90%;
     }
@@ -82,5 +123,14 @@
     #contact-section .mobile-contact-form {
         float: none;
         width: auto;
+    }
+
+    #contact-section .contact-form .mobile-send-btn {
+        float: none;
+        width: 100%;
+    }
+
+    #contact-section .contact-info {
+        margin-bottom: 24px;
     }
 }
