@@ -175,6 +175,13 @@ html {
    margin: 15px 0;
 }
 
+#slider .slider-content p,
+#slider .slider-content h2 {
+   text-shadow: 0 0 4px black;
+
+}
+
+
 /* CONTENT */
 
 /* About section */
